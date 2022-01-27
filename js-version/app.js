@@ -42,7 +42,7 @@
         for(var i = 1; i < length + 1 ; i++){
          licenseStr += getLicenseCharacter();
 
-            if (i % delimiter_step === 0 && i !== length){
+            if (i % step === 0 && i !== length){
 
               licenseStr += delimiter;
             
