@@ -51,7 +51,7 @@ function getLicenseCharacter(){
         // console.log("Before")
         // console.log(character)
 
-        if($character === undefined || $character === null){
+        if( !isset($character) || is_null($character) ){
             $character = 0;
         }
 
