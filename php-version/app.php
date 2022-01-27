@@ -36,6 +36,7 @@ function randomAlpha($lower = "false"){
 }
 
 function getLicenseCharacter(){
+    
         $character = null;
 
         switch(coinFlip()){
@@ -85,4 +86,19 @@ function getLicenseCharacter(){
 	  
         
     }
+
+
+    function bulk_license_builder($qty){
+		
+	//	$key_length = 16;
+	//	$delimiter = "-";
+	//	$delimiter_step = 4;	
+		$licenses = [];
+		
+		for($i = 1; $i <= $qty; $i++){
+			array_push($licenses, build_license($delimiter, $delimiter_step, $key_length));
+		}
+		
+		return $licenses;
+	}
 ?>
