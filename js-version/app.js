@@ -75,9 +75,9 @@
 
 
 // Check a single string against an entire array of strings
-function is_fresh_input(code, catalog){
+function is_fresh_input(code, arr){
     
-    var code_in_array = catalog.includes(code);
+    var code_in_array = arr.includes(code);
 
     if(code_in_array){
         return false;
@@ -87,42 +87,30 @@ function is_fresh_input(code, catalog){
 
 }
 
-// Parse through an array of strings, 
+// Parse through an array of strings and remove duplicates
+// Returns an object containing the number of duplicates removed and the resulting array
 function remove_duplicates(catalog){
 
     var orig_length = catalog.length;
 
     //(if needed)
     // From here: // https://stackoverflow.com/questions/49215358/checking-for-duplicate-strings-in-javascript-array
-    //let findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item) != index);
+    let findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item) != index);
     
     // An array of duplicated keys 
-    // var duplicates = [...new Set(findDuplicates(catalog))]
+     var duplicates = [...new Set(findDuplicates(catalog))]
 
 
     // Loop over the catalog, and this time remove all duplicates from it
     var unique_vals = [...new Set(catalog)];
-    var unique_length = unique_vals.length;
+    var unique_length = unique_vals.length;  
 
-    var difference = orig_length - unique_length;
+    return {
+        num_keys_removed: `${duplicates.length}`,
+        duplicates: duplicates,        
+        catalog: unique_vals
+    }
     
-
-    if(orig_length === unique_length){
-
-        return {
-            keys_removed: 0,
-            catalog: catalog
-        };
-
-    } else {
-            // Get the difference
-            
-            return {
-                keys_removed: `${difference}`,
-                catalog: unique_vals
-            };
-
-        }
 }
 
 
@@ -135,7 +123,7 @@ let catalog_two = [ "WT7L-CQW0-KCV4-0REK", "0N2E-Y981-S9B5-5STT", "TH80-TQ47-S1G
 
 let fruits = ["Banana", "Orange", "Apple", "Mango"];
 
-console.log(remove_duplicates(catalog_one));
-console.log(remove_duplicates(catalog_two));
+// console.log(remove_duplicates(catalog_one));
+// console.log(remove_duplicates(catalog_two));
 
-console.log(is_fresh_input("F8EM-LG40-2SK1-7N4P", catalog_two))
+console.log(is_fresh_input("04ZI-91J5-69Y5-92N2", catalog_two))
