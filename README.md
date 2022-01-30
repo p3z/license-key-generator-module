@@ -10,3 +10,7 @@ This is assuming that:
 - the delimiter_step is set to 4
 
 These can be modified to generate different key sizes as needed. For best results, ensure the delimiter step is a factor of the key_length
+
+
+30/01/22
+Decided to refactor and add a bunch of functionality to handle other codes, no doubt this will be useful elsewhere
