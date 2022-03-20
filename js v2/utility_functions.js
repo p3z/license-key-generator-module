@@ -43,40 +43,46 @@ function build_license(delimiter, step, length){
     
 }
 
-// Takes an array of modes selected
 // Outputs a single character that conforms to the rules of selection
-function new_license_character(modes){
+function new_license_character(modes = []){
 
-    console.log(modes)
+ //   console.log(modes)
 
-    //include_nums
-    //include_alphas
-   // include_specials
-    //include_nulls
-  //  uppercase
-//    unique_only
+    let mode_names = Object.keys(modes);
+    let mode_vals = Object.values(modes);
 
-
+    // Pass through each mode, and add a possible choise to possibility_arr
     let possibility_arr = [];
+    // When complete, arbitrarily select value from possibility_array
 
-    modes.forEach(mode => {
-        switch(mode){
-            case 0 : // numbers
-                possibility_arr.push(randomQuery(0, 9));
+    mode_names.forEach((current_mode, i) => {
+        switch(current_mode){
+            case 'include_nums' :
+            
+                if(mode_vals[i]){
+                    possibility_arr.push(randomQuery(0, 9));
+                }
+                
                 break;
 
-            case 1: // alpha letters
-                possibility_arr.push(randomAlpha());
+            case 'include_alphas':
+                if(mode_vals[i]){
+                    possibility_arr.push(randomAlpha());
+                }
+                
                 break;
 
-            case 2: // specials
-            case 3: // nulls
+            case 'include_specials':
+            case 'include_nulls':
+            case 'uppercase':
+            case 'unique_only':
         }
 
         let possibility_size = possibility_arr.length;
 
         let selection = randomQuery(0, possibility_size);
 
+       // console.log(possibility_arr[selection])
         return possibility_arr[selection];
     });
 

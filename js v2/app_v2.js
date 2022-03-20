@@ -29,17 +29,19 @@ function make_general_code(config_obj) {
     
     let output = []; 
 
-    new_license_character(constraints) // Not quite right yet, been at this a while though, calling it a day
-
-    
-
     // Run the code for as many times as the qty specifies
     for(let i = 1; i <= (config_obj.qty); i++){
         
+        let test = new_license_character(constraints);
+
+        console.log(test)
+        console.log(i)
 
 
 
     } // end code creation loop
+
+    console.log(output)
     
 }
 

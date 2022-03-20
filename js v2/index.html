@@ -30,7 +30,7 @@
                 <option value="all_lower">All lowercase</option>
                 <option value="mix">Mix upper/lower case</option>
             </select>
-                <br>
+            <br>
             <br>
             <label for="unique_only">Only unique characters?</label>
             <input type="checkbox" id="unique_only"> <br>
@@ -50,7 +50,7 @@
                 form.addEventListener("submit", (e)=>{
                     e.preventDefault();
                     
-                    let qty = e.target.qty.value != '' ? e.target.qty.value : 1;
+                    let qty = e.target.qty.value != '' ? e.target.qty.value : 4;
                     let length = e.target.length.value != '' ? e.target.length.value : 16;
                     let delimiter = e.target.delimiter.value;
                     let delim_step = e.target.delim_step.value != '' ? e.target.delim_step.value : 4;
