@@ -171,8 +171,8 @@ function bulkClassToggler(cssClass = '', elements = [], exceptions = [], directi
 
         }// end switch
         
-        console.log("An element:")
-        console.log(el)
+        // console.log("An element:")
+        // console.log(el)
         
     }); // end foreach
     
@@ -192,8 +192,8 @@ function bulkClassToggler(cssClass = '', elements = [], exceptions = [], directi
         }// end switch
         
         
-        console.log("An exception:")
-        console.log(x);
+        // console.log("An exception:")
+        // console.log(x);
         
     }); // end foreach
                 
@@ -314,7 +314,7 @@ let fruits = ["Banana", "Orange", "Apple", "Mango"];
 // console.log(remove_duplicates(catalog_one));
 // console.log(remove_duplicates(catalog_two));
 
-console.log(is_fresh_input("04ZI-91J5-69Y5-92N2", catalog_two))
+//console.log(is_fresh_input("04ZI-91J5-69Y5-92N2", catalog_two))
 
 
 function linux_win(sys, str){

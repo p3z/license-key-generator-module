@@ -47,6 +47,16 @@ function build_license(delimiter, step, length){
 // Outputs a single character that conforms to the rules of selection
 function new_license_character(modes){
 
+    console.log(modes)
+
+    //include_nums
+    //include_alphas
+   // include_specials
+    //include_nulls
+  //  uppercase
+//    unique_only
+
+
     let possibility_arr = [];
 
     modes.forEach(mode => {
