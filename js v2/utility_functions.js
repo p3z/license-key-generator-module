@@ -49,7 +49,7 @@ function new_license_character(modes){
 
     let possibility_arr = [];
 
-    modes.forEach(moode => {
+    modes.forEach(mode => {
         switch(mode){
             case 0 : // numbers
                 possibility_arr.push(randomQuery(0, 9));

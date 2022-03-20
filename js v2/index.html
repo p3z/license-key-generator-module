@@ -3,9 +3,80 @@
     <body>
         <h1></h1>
 
-        <button>Generate new key</button>
-        <script src="shay-lib.min.js"></script>
+        <form id="test-form" action="#">
+            <input type="number" min="1" step="1" id="qty" placeholder="No. of codes to generate"> <br>
+            <br>
+            <input type="number" min="1" step="1" id="length" placeholder="No. of chars per code (not inc. delimiter)"> <br> 
+            <br>
+            <input type="text" id="delimiter" placeholder="A delimiter separating each block of chars"> <br> 
+            <br>
+            <input type="number" min="1" step="1" id="delim_step" placeholder="Delimiter step"> <br>
+            <br>
+            <label for="include_nums">Include numbers?</label>
+            <input type="checkbox" id="include_nums"> <br>
+            <br>
+            <label for="include_alphas">Include alpha characters?</label>
+            <input type="checkbox" id="include_alphas"> <br>
+            <br>
+            <label for="include_specials">Include special characters?</label>
+            <input type="checkbox" id="include_specials"> <br>
+            <br>
+            <label for="include_nulls">Include dummy characters?</label>
+            <input type="checkbox" id="include_nulls"> <br>
+            <br>
+            <label for="uppercase">Character casing?</label>
+            <select id="uppercase">
+                <option value="all_upper">All uppercase</option>
+                <option value="all_lower">All lowercase</option>
+                <option value="mix">Mix upper/lower case</option>
+            </select>
+                <br>
+            <br>
+            <label for="unique_only">Only unique characters?</label>
+            <input type="checkbox" id="unique_only"> <br>
+            <br>
+
+            
+            
+            <button type="submit">Generate new key(s)</button>
+        </form>
+        
+        <script src="shay-lib-v1.js"></script>
         <script src="utility_functions.js"></script>
         <script src="app_v2.js"></script>
+        <script>
+            (()=>{
+                let form = document.getElementById("test-form");
+                form.addEventListener("submit", (e)=>{
+                    e.preventDefault();
+                    
+                    let qty = e.target.qty.value != '' ? e.target.qty.value : 1;
+                    let length = e.target.length.value != '' ? e.target.length.value : 16;
+                    let delimiter = e.target.delimiter.value;
+                    let delim_step = e.target.delim_step.value != '' ? e.target.delim_step.value : 4;
+                    let include_nums = e.target.include_nums.checked;
+                    let include_alphas = e.target.include_alphas.checked;
+                    let include_specials = e.target.include_specials.checked;
+                    let include_nulls = e.target.include_nulls.checked;
+                    let uppercase = e.target.uppercase.value;
+                    let unique_only = e.target.unique_only.checked;
+                    
+                    let test_obj = {
+                        test: "test",
+                        qty: qty,
+                        length: length,
+                        delimiter: delimiter,
+                        delim_step: delim_step,
+                        include_nums: include_nums,
+                        include_alphas: include_alphas,
+                        include_specials: include_specials,
+                        include_nulls: include_nulls,
+                        uppercase: uppercase,
+                        unique_only: unique_only
+                    }
+                    make_general_code(test_obj);
+                })
+            })()
+        </script>
     </body>
 </html>
